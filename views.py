@@ -98,3 +98,25 @@ def index(request):
     recent_stocks = []
     recent_stocks = json.loads(json_records)
 
+# ========================================== Page Render section =====================================================
+
+    return render(request, 'index.html', {
+        'plot_div_left': plot_div_left,
+        'recent_stocks': recent_stocks
+    })
+
+def search(request):
+    return render(request, 'search.html', {})
+
+def ticker(request):
+    # ================================================= Load Ticker Table ================================================
+    ticker_df = pd.read_csv('app/Data/new_tickers.csv') 
+    json_ticker = ticker_df.reset_index().to_json(orient ='records')
+    ticker_list = []
+    ticker_list = json.loads(json_ticker)
+
+
+    return render(request, 'ticker.html', {
+        'ticker_list': ticker_list
+    })
+
