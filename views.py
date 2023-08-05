@@ -242,3 +242,25 @@ def predict(request, ticker_value, number_of_days):
             Sector = ticker.Sector[i]
             Industry = ticker.Industry[i]
             break
+
+         # ========================================== Page Render section ==========================================
+    
+
+    return render(request, "result.html", context={ 'plot_div': plot_div, 
+                                                    'confidence' : confidence,
+                                                    'forecast': forecast,
+                                                    'ticker_value':ticker_value,
+                                                    'number_of_days':number_of_days,
+                                                    'plot_div_pred':plot_div_pred,
+                                                    'Symbol':Symbol,
+                                                    'Name':Name,
+                                                    'Last_Sale':Last_Sale,
+                                                    'Net_Change':Net_Change,
+                                                    'Percent_Change':Percent_Change,
+                                                    'Market_Cap':Market_Cap,
+                                                    'Country':Country,
+                                                    'IPO_Year':IPO_Year,
+                                                    'Volume':Volume,
+                                                    'Sector':Sector,
+                                                    'Industry':Industry,
+                                                    })
